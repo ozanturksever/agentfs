@@ -48,7 +48,7 @@ pub enum SessionACL {
 
 /// Maximum number of concurrent FUSE requests to process.
 /// Using 1 to serialize all requests and avoid database contention.
-const MAX_CONCURRENT_REQUESTS: usize = 1;
+const MAX_CONCURRENT_REQUESTS: usize = 2;
 
 /// The session data structure
 #[derive(Debug)]

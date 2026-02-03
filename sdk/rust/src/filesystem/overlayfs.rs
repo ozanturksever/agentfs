@@ -626,7 +626,18 @@ impl FileSystem for OverlayFS {
             return Ok(Some(stats));
         }
 
-        // Try base
+        // If the parent is a "pure delta" directory (created in delta, not copied from base),
+        // there's no point checking the base layer - children can't exist there. This avoids
+        // unnecessary stat() syscalls when looking up entries in directories like node_modules/
+        // that were created entirely within the delta layer.
+        if let Some(delta_parent) = delta_parent_ino {
+            if self.get_origin_ino(delta_parent).is_none() {
+                // Parent exists in delta with no base origin - it's a pure delta directory
+                return Ok(None);
+            }
+        }
+
+        // Try base - parent either exists in base or was copied from base
         let base_parent_ino = if parent_info.layer == Layer::Base {
             parent_info.underlying_ino
         } else {

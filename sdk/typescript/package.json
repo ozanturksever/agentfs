@@ -22,6 +22,10 @@
       "browser": "./dist/index_browser.js",
       "default": "./dist/index_node.js"
     },
+    "./ooss": {
+      "import": "./dist/integrations/ooss/index.js",
+      "types": "./dist/integrations/ooss/index.d.ts"
+    },
     "./just-bash": {
       "import": "./dist/integrations/just-bash/index.js",
       "types": "./dist/integrations/just-bash/index.d.ts"

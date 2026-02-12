@@ -7,7 +7,7 @@ For guides, tutorials, and SDK documentation, see [docs.turso.tech/agentfs](http
 ## Installation
 
 ```bash
-curl -fsSL https://github.com/tursodatabase/agentfs/releases/latest/download/agentfs-installer.sh | sh
+curl -fsSL https://raw.githubusercontent.com/ozanturksever/agentfs/main/install.sh | sh
 ```
 
 ## Commands

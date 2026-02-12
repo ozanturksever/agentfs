@@ -50,7 +50,13 @@ Read more about the motivation for AgentFS in the announcement [blog post](https
 Install the AgentFS CLI:
 
 ```bash
-curl -fsSL https://agentfs.ai/install | bash
+curl -fsSL https://raw.githubusercontent.com/ozanturksever/agentfs/main/install.sh | sh
+```
+
+Or specify a custom install directory:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ozanturksever/agentfs/main/install.sh | AGENTFS_INSTALL_DIR=~/.local/bin sh
 ```
 
 Initialize an agent filesystem:

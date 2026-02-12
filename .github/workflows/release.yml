@@ -29,8 +29,6 @@ jobs:
             runner: ubuntu-24.04-arm
           - target: aarch64-apple-darwin
             runner: macos-latest
-          - target: x86_64-apple-darwin
-            runner: macos-13
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v4
@@ -51,7 +49,7 @@ jobs:
           sudo apt-get install -y libfuse3-dev libunwind-dev liblzma-dev
 
       - name: Install system dependencies (macOS)
-        if: startsWith(matrix.target, 'x86_64-apple') || startsWith(matrix.target, 'aarch64-apple')
+        if: matrix.target == 'aarch64-apple-darwin'
         run: brew install --cask macfuse
 
       - name: Install Rust toolchain
@@ -66,7 +64,7 @@ jobs:
       - name: Package
         run: |
           mkdir -p staging
-          cp target/dist/agentfs staging/
+          cp cli/target/dist/agentfs staging/
           tar czf agentfs-${{ matrix.target }}.tar.gz -C staging agentfs
 
       - name: Upload artifact

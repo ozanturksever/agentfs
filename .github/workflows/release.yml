@@ -103,7 +103,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create "${{ env.RELEASE_TAG }}" \
-            --target "${{ env.RELEASE_TAG }}" \
             --title "${{ env.RELEASE_TAG }}" \
             --generate-notes \
             ${{ steps.prerelease.outputs.flag }} \

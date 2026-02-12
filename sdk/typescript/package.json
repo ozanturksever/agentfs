@@ -1,5 +1,5 @@
 {
-  "name": "agentfs-sdk",
+  "name": "@fatagnus/agentfs-sdk",
   "version": "0.6.0",
   "description": "AgentFS SDK",
   "main": "dist/index_node.js",
@@ -50,8 +50,8 @@
     "url": "https://github.com/tursodatabase/agentfs"
   },
   "devDependencies": {
-    "@tursodatabase/database-wasm": "^0.4.0-pre.18",
-    "@types/node": "^20.0.0",
+    "@tursodatabase/database-wasm": "^0.4.4",
+    "@types/node": "^22.0.0",
     "@vitest/browser": "^4.0.16",
     "@vitest/browser-playwright": "^4.0.16",
     "@vitest/ui": "^4.0.1",
@@ -68,8 +68,8 @@
     }
   },
   "dependencies": {
-    "@tursodatabase/database": "^0.4.0-pre.18",
-    "@tursodatabase/database-common": "^0.4.0-pre.18",
+    "@tursodatabase/database": "^0.4.4",
+    "@tursodatabase/database-common": "^0.4.4",
     "buffer": "^6.0.3"
   },
   "files": [

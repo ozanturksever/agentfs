@@ -2,7 +2,7 @@
 
 Delta between this fork (`ozanturksever/agentfs`) and upstream (`tursodatabase/agentfs`).
 
-Net effect: +2,646 / −499 lines vs upstream. Upstream baseline: `a0bcdf9` (upstream/main, AgentFS 0.6.2, 2026-02-23).
+Net effect: +2,619 / −374 lines vs upstream. Upstream baseline: `a0bcdf9` (upstream/main, AgentFS 0.6.2, 2026-02-23). Last merged: 2026-02-23.
 
 ---
 
@@ -13,6 +13,7 @@ Each section is tagged with a **merge policy**:
 - 🔒 **KEEP** — Core to the fork's purpose. Must survive upstream merges. Resolve conflicts in favor of the fork.
 - 🔀 **PREFER UPSTREAM** — Adopt upstream's version on next merge. Fork changes here were tactical or temporary.
 - ⚖️ **NEGOTIATE** — Fork has meaningful changes but upstream may too. Manually reconcile on merge; pick the better implementation.
+- ✅ **RESOLVED** — Previously divergent; now aligned with upstream.
 
 ---
 
@@ -61,20 +62,9 @@ The upstream release system (cargo-dist based) was replaced with a simpler direc
 
 **Merge notes**: Additive file. Doc changes will conflict with upstream's install instructions — resolve in favor of the fork.
 
-## 5. Version Pinning (Rust/Python SDKs) ⚖️ NEGOTIATE
+## 5. ~~Version Pinning (Rust/Python SDKs)~~ ✅ RESOLVED
 
-All Rust/Python SDK packages pinned to `0.6.1` while upstream advanced to `0.6.2`:
-
-| Package | Fork | Upstream |
-|---|---|---|
-| `cli/Cargo.toml` | 0.6.1 | 0.6.2 |
-| `sandbox/Cargo.toml` | 0.6.1 | 0.6.2 |
-| `sdk/rust/Cargo.toml` | 0.6.1 | 0.6.2 |
-| `sdk/python/pyproject.toml` | 0.6.1 | 0.6.2 |
-
-This happened because the fork merged upstream at the 0.6.1 tag; upstream has since released 0.6.2 (native-tls fix + changelog).
-
-**Merge notes**: On next merge, accept upstream's version bumps. The fork's Cargo.lock files also diverge accordingly — let them regenerate from upstream versions.
+Resolved in merge `96cd6fc` (2026-02-23). Accepted upstream's 0.6.2 version bumps for all Rust/Python packages (`cli`, `sandbox`, `sdk/rust`, `sdk/python`). Fork and upstream now agree on 0.6.2 for these packages.
 
 ---
 

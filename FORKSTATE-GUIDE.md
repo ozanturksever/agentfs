@@ -38,7 +38,7 @@ Test coverage: `sdk/typescript/tests/ooss-integration.test.ts` (315 lines).
 ## 2. SDK Republished Under @fatagnus Scope 🔒 KEEP
 
 - `sdk/typescript/package.json`: name changed from `agentfs-sdk` → `@fatagnus/agentfs-sdk`.
-- Version bumped to `0.7.2` (upstream is `0.6.2`).
+- Version bumped to `0.7.3` (upstream is `0.6.2`).
 
 **Merge notes**: On merge, keep the scoped name and fork version. Do not accept upstream's `agentfs-sdk` name or version — the fork publishes independently to npm.
 

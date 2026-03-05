@@ -88,6 +88,12 @@ func Open(ctx context.Context, opts AgentFSOptions) (*AgentFS, error) {
 		return nil, fmt.Errorf("failed to enable WAL mode: %w", err)
 	}
 
+	// Set busy timeout to avoid SQLITE_BUSY under concurrent access
+	if _, err := db.ExecContext(ctx, "PRAGMA busy_timeout=5000"); err != nil {
+		db.Close()
+		return nil, fmt.Errorf("failed to set busy timeout: %w", err)
+	}
+
 	// Enable foreign keys
 	if _, err := db.ExecContext(ctx, "PRAGMA foreign_keys=ON"); err != nil {
 		db.Close()
